@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer;
+        let stack = [];
+        for (let a of s) {
+          if (a === "+" || a === "-" || a === "*" || a === "/") {
+            let tmp1 = stack[stack.length - 2];
+            let tmp2 = stack[stack.length - 1];
+            stack.pop();
+            stack.pop();
+            if (a === "+") stack.push(tmp1 + tmp2);
+            else if (a === "-") stack.push(tmp1 - tmp2);
+            else if (a === "*") stack.push(tmp1 * tmp2);
+            else if (a === "/") stack.push(tmp1 / tmp2);
+          } else stack.push(Number(a));
+        }
+        answer = stack[0];
+        return answer;
+      }
+
+      let str = "352+*9-";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>

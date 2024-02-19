@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, b, c) {
+        let answer;
+        if (a < b) {
+          if (a < c) answer = a;
+          else if (c < a) answer = c;
+        } else if (b < a) {
+          if (b < c) answer = b;
+          else if (c < b) answer = c;
+        }
+        return answer;
+      }
+
+      console.log(solution(2, 5, 1));
+    </script>
+  </body>
+</html>

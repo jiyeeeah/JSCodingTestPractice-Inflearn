@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1 id="answer"></h1>
+    <script>
+      function solution(n, k) {
+        let answer;
+        let queue = Array.from({ length: n }, (v, i) => i + 1);
+
+        while (queue.length !== 1) {
+          for (let i = 1; i < k; i++) queue.push(queue.shift()); //k-1번 돌려줌
+          queue.shift(); // k번째는 그냥 꺼내줌
+          if (queue.length === 1) answer = queue.shift();
+        }
+        return queue;
+      }
+
+      console.log(solution(8, 3));
+      ans = document.getElementById("answer");
+      ans.innerHTML = solution(8, 3);
+    </script>
+  </body>
+</html>
