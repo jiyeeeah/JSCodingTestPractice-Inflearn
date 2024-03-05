@@ -4,13 +4,13 @@ function solution(test) {
   let m = test[0].length;
   for (let i = 1; i <= m; i++) {
     for (let j = 1; j <= m; j++) {
-      let cnt = 0; //이 변수가 필요함. test3번 다 적합한지 확인해야
+      let cnt = 0; //이 변수가 필요함. test 횟수 다 적합한지 확인해야
       for (let k = 0; k < n; k++) {
         if (test[k].indexOf(i) < test[k].indexOf(j)) {
           cnt++;
         }
       }
-      if (cnt === 3) answer++;
+      if (cnt === n) answer++;
     }
   }
   return answer;
