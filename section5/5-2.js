@@ -1,5 +1,13 @@
 function solution(arr1, arr2) {
-  let answer;
+  let answer = [];
+  let n = arr1.length;
+  let m = arr2.length;
+  for (let x of arr1) {
+    for (let y of arr2) {
+      if (x === y) answer.push(x);
+    }
+  }
+  answer.sort((a, b) => a - b);
   return answer;
 }
 
