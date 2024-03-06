@@ -1,5 +1,17 @@
 function solution(n, k, card) {
   let answer;
+  let sumArr = [];
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      for (let k = 0; k < n; k++) {
+        if (i === j || j === k || k === i) continue;
+        let sum = card[i] + card[j] + card[k];
+        if (!sumArr.includes(sum)) sumArr.push(sum);
+      }
+    }
+  }
+  sumArr.sort((a, b) => b - a);
+  answer = sumArr[k - 1];
   return answer;
 }
 
