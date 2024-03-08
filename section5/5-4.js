@@ -19,3 +19,6 @@ console.log(solution(5, a));
 
 let b = [1, 3, 1, 2, 3, 2];
 console.log(solution(5, b));
+
+let c = [1, 1, 1, 1, 1];
+console.log(solution(5, c));
