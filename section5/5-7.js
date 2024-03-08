@@ -6,12 +6,8 @@ function solution(str1, str2) {
     else sH.set(letter, 1);
   }
   for (let letter of str2) {
-    if (sH.has(letter)) sH.set(letter, sH.get(letter) - 1);
-    else return false;
-  }
-  for (let [key, val] of sH) {
-    if (val === 0) answer = true;
-    else return false;
+    if (!sH.has(letter) || sH.get(letter) === 0) return false;
+    sH.set(letter, sH.get(letter) - 1);
   }
   return answer;
 }
