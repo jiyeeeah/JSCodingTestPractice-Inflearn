@@ -4,11 +4,11 @@ function solution(k, arr) {
   for (let i = 0; i < k; i++) {
     sum += arr[i];
   }
-  let lt = 0;
-  for (let rt = lt + k; rt < arr.length; rt++) {
+  answer = sum;
+  for (let i = k; i < arr.length; i++) {
+    sum = sum + arr[i] - arr[i - k];
     if (sum > answer) answer = sum;
-    sum += arr[rt];
-    sum -= arr[lt++];
+    // answer = Math.max(answer, sum);
   }
   return answer;
 }
