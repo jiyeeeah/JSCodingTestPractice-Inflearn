@@ -1,13 +1,9 @@
 function solution(arr) {
   let answer = arr;
-  answer.sort((a, b) => a[0] - b[0]);
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length - i - 1; j++) {
-      if (answer[j][0] === answer[j + 1][0] && answer[j][1] > answer[j + 1][1]) {
-        [answer[j], answer[j + 1]] = [answer[j + 1], answer[j]];
-      }
-    }
-  }
+  answer.sort((a, b) => {
+    if (a[0] === b[0]) return a[1] - b[1];
+    else return a[0] - b[0];
+  });
   return answer;
 }
 
