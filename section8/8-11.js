@@ -1,13 +1,10 @@
 function solution(n) {
   let answer = 1;
-  function DFS(L, fac) {
-    if (L <= 0) {
-      answer = fac;
-    } else {
-      DFS(L - 1, fac * L);
-    }
+  function DFS(n) {
+    if (n === 1) return 1;
+    else return n * DFS(n - 1);
   }
-  DFS(n, 1);
+  answer = DFS(n);
   return answer;
 }
 
