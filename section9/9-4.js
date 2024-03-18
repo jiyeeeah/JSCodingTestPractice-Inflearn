@@ -7,12 +7,12 @@ function solution(board) {
     if (x === n - 1 && y === n - 1) answer++;
     else {
       for (let i = 0; i < 4; i++) {
-        if (x + dx[i] >= 0 && x + dx[i] < n && y + dy[i] >= 0 && y + dy[i] < n) {
-          if (board[x + dx[i]][y + dy[i]] === 0) {
-            board[x + dx[i]][y + dy[i]] = -1;
-            DFS(x + dx[i], y + dy[i]);
-            board[x + dx[i]][y + dy[i]] = 0;
-          }
+        let nx = x + dx[i];
+        let ny = y + dy[i];
+        if (nx >= 0 && nx < n && ny >= 0 && ny < n && board[nx][ny] === 0) {
+          board[nx][ny] = -1;
+          DFS(nx, ny);
+          board[nx][ny] = 0;
         }
       }
     }
