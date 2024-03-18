@@ -1,24 +1,25 @@
 function solution(n, arr) {
   let answer = 0;
-  let graph = Array.from(Array(5), () => Array(5).fill(0));
-  for (let edge of arr) {
-    graph[edge[0] - 1][edge[1] - 1] = 1;
-  }
-
+  let graph = Array.from(Array(n + 1), () => Array(n + 1).fill(0));
   let ch = Array.from({ length: n + 1 }, () => false);
-  function DFS(N) {
-    if (N === n) {
+  for (let [a, b] of arr) {
+    graph[a][b] = 1;
+  }
+  function DFS(V) {
+    if (V === n) {
       answer++;
     } else {
       for (let i = 1; i <= n; i++) {
-        if (graph[N - 1][i - 1] !== 0 && !ch[N]) {
-          ch[N] = true;
+        if (graph[V][i] !== 0 && !ch[V]) {
+          ch[V] = true;
           DFS(i);
-          ch[N] = false;
+          ch[V] = false;
         }
       }
     }
   }
+
+  ch[1] = true; // 첫 정점은 체크를 미리 해줘야함
   DFS(1);
   return answer;
 }
