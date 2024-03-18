@@ -19,7 +19,6 @@ function solution(n, arr) {
     }
   }
 
-  ch[1] = true; // 첫 정점은 체크를 미리 해줘야함
   DFS(1);
   return answer;
 }

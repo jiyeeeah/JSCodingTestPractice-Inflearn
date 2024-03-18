@@ -1,5 +1,27 @@
 function solution(n, arr) {
-  let answer;
+  let answer = 0;
+  let graph = Array.from(Array(n + 1), () => Array());
+  let ch = Array.from({ length: n + 1 }, () => false);
+
+  for (let [a, b] of arr) {
+    graph[a].push(b);
+  }
+
+  function DFS(V) {
+    if (V === n) answer++;
+    else {
+      for (let i = 0; i < graph[V].length; i++) {
+        if (!ch[graph[V][i]]) {
+          ch[graph[V][i]] = true;
+          DFS(graph[V][i]);
+          ch[graph[V][i]] = false;
+        }
+      }
+    }
+  }
+
+  ch[1] = true; // 첫 정점은 체크를 미리 해줘야함
+  DFS(1);
   return answer;
 }
 
