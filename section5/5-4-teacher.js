@@ -5,10 +5,10 @@ function solution(m, arr) {
   for (let rt = 0; rt < arr.length; rt++) {
     sum += arr[rt];
     while (sum > m) {
-      sum -= arr[lt];
+      sum -= arr[lt++];
     }
     answer += rt - lt + 1;
-    // lt로 끝나는 경우의 수
+    // lt로 시작하고 rt로 끝나는 그 안에 있는 부분집합의 수
     // (예를 들어 1, 2, 2이면 lt = 0 rt = 2 => 3개(1, 2, 2), (2, 2), (2))
   }
   return answer;
@@ -19,3 +19,6 @@ console.log(solution(5, a));
 
 let b = [1, 3, 1, 2, 3, 2];
 console.log(solution(5, b));
+
+let c = [1, 1, 1, 1, 1];
+console.log(solution(5, c));
