@@ -1,5 +1,12 @@
 function solution(m, arr) {
-  let answer;
+  let answer = 0;
+  let dy = Array.from({ length: m + 1 }, () => 0);
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = m; j >= arr[i][1]; j--) {
+      dy[j] = Math.max(dy[j], dy[j - arr[i][1]] + arr[i][0]);
+    }
+  }
+  answer = dy[m];
   return answer;
 }
 
