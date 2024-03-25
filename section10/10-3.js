@@ -1,4 +1,4 @@
-function solution(m, coin) {
+function solution(arr) {
   let answer = 0;
   let dy = Array.from({ length: arr.length }, () => 0);
   dy[0] = 1;
